@@ -1,0 +1,5 @@
+{% if include.publication.preprint %}
+  <p>Preprint, {{ include.publication.date | default: "1900-01-01" | date: "%Y" }} </p>
+{% else %}
+  <p>{{ include.publication.venue_label | default: "Published in" | escape }} <i>{{ include.publication.venue }}</i>, {{ include.publication.date | default: "1900-01-01" | date: "%Y" }} </p>
+{% endif %}

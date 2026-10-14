@@ -3,4 +3,30 @@
 <!-- Support for MathJax -->
 <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
 
+<!-- Make external links open in new tabs -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("a[href]").forEach(link => {
+    if (
+      ["http:", "https:"].includes(link.protocol) &&
+      link.origin !== window.location.origin &&
+      !link.hasAttribute("target")
+    ) {
+      link.target = "_blank";
+      link.relList.add("noopener");
+    }
+  });
+});
+</script>
+
 <!-- end custom footer snippets -->
+<dialog id="bibtex-dialog" class="bibtex-dialog" aria-labelledby="bibtex-dialog-title" data-site-url="{{ site.url | escape }}">
+  <form method="dialog"><button type="submit" aria-label="Close BibTeX popup" autofocus>Close</button></form>
+  <h2 id="bibtex-dialog-title">BibTeX</h2>
+  <pre aria-live="polite"><code></code></pre>
+  <div class="bibtex-actions">
+    <button type="button" class="bibtex-copy" disabled>Copy BibTeX</button>
+    <span class="bibtex-copy-status" role="status"></span>
+  </div>
+</dialog>
+<script defer src="{{ base_path }}/assets/js/bibtex.js"></script>

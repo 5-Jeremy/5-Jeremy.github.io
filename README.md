@@ -20,6 +20,29 @@ See more info at https://academicpages.github.io/
 Additional tutorials for working with the Academic Pages template can be found at the following sites:
 - https://jayrobwilliams.com/posts/2020/06/academic-website/
 
+## Publication labels
+
+Set these optional front matter fields in a paper's `_publications/*.md` file.
+They apply to both the publications list and the individual paper page.
+
+For a non-archival venue:
+
+```yaml
+venue: "Workshop Name"
+venue_label: "Presented at"
+```
+
+For a paper that has not been accepted at a venue:
+
+```yaml
+preprint: true
+```
+
+Preprints display “Preprint, YEAR” without a venue, even if `venue` is set.
+Otherwise, the label defaults to “Published in”; `venue_label` overrides it.
+When a preprint is accepted, remove `preprint: true` (or set it to `false`)
+and add the venue and any desired label.
+
 ## Running locally
 
 When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
